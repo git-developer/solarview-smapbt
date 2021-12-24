@@ -10,5 +10,7 @@ variables:
 
 read_application_tags:
   after_script:
+  - set -euo pipefail
+  - run() { docker run --rm "${IMAGE_NAME}:${BUILD_CACHE}" sh -c "${@}"; }
   - APP_VERSION="$(run 'touch btaddress.txt && "${APP_HOME}/${APP_NAME}" -v' | sed -n -E 's/.* Version ([^\t ]+).*/\1/p')"
   - echo >tags/app_version "${IMAGE_NAME}:v${APP_VERSION}"
