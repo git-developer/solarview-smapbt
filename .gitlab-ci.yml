@@ -7,3 +7,8 @@ variables:
   BUILD_ARGS: 'APP_NAME=smapbt-fb'
   IMAGE_TITLE: 'SolarView SMA Bluetooth-Proxy'
   UPDATE_CHECK_URLS: 'http://www.solarview.info/downloads/smapbt-fb.zip'
+
+read_application_tags:
+  after_script:
+  - APP_VERSION="$(run 'touch btaddress.txt && "${APP_HOME}/${APP_NAME}" -v' | sed -n -E 's/.* Version ([^\t ]+).*/\1/p')"
+  - echo >tags/app_version "${IMAGE_NAME}:v${APP_VERSION}"
