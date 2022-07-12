@@ -1,9 +1,9 @@
 include:
-  remote: 'https://github.com/git-developer/solarview-base/raw/optional-libs/.gitlab-ci.yml'
+  remote: 'https://github.com/git-developer/solarview-base/raw/v1.10.0/.gitlab-ci.yml'
 
 variables:
   IMAGE_PLATFORMS: 'linux/amd64,linux/i386,linux/arm/v7,linux/arm/v6'
-  DOCKERFILE_URL: 'https://github.com/git-developer/solarview-base/raw/optional-libs/Dockerfile'
+  DOCKERFILE_URL: 'https://github.com/git-developer/solarview-base/raw/v1.10.0/Dockerfile'
   BUILD_ARGS: 'APP_NAME=smapbt-fb APP_PACKAGES=libbluetooth3,bluez,sudo'
   IMAGE_TITLE: 'SolarView SMA Bluetooth-Proxy'
   UPDATE_CHECK_URLS: 'http://www.solarview.info/downloads/smapbt-fb.zip'
